@@ -126,6 +126,8 @@ public class SinglyLinkedListTest {
         list.insert('b');
         list.insert('c');
 
+        assertEquals(list.head.next.data, 'a');
+
         list.reverse();
 
         assertEquals(list.head.next.data, 'c');
@@ -138,6 +140,10 @@ public class SinglyLinkedListTest {
         list.insert('b');
 
         assertEquals(list.toString(), "ab");
+
+        list.reverse();
+
+        assertEquals(list.toString(), "ba");
     }
 }
 
