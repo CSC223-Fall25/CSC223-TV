@@ -13,65 +13,65 @@ public class HeapTest{
     @BeforeEach
     public void setup(){
         testmaxheap = new MaxHeap();
-        testmaxheap.insert(100);
-        testmaxheap.insert(40);
-        testmaxheap.insert(50);
-        testmaxheap.insert(10);
-        testmaxheap.insert(15);
-        testmaxheap.insert(50);
-        testmaxheap.insert(40);
-        //        100   
-        //    40       50
-        //  10  15   50  40
+        testmaxheap.insert('e');
+        testmaxheap.insert('c');
+        testmaxheap.insert('d');
+        testmaxheap.insert('a');
+        testmaxheap.insert('b');
+        testmaxheap.insert('d');
+        testmaxheap.insert('c');
+        //       e 
+        //    c     d
+        //  a  b   d  c
 
         testminheap = new MinHeap();
-        testminheap.insert(10);
-        testminheap.insert(15);
-        testminheap.insert(30);
-        testminheap.insert(40);
-        testminheap.insert(50);
-        testminheap.insert(100);
-        testminheap.insert(40);
-        //        10   
-        //    15       30
-        //  40  50  100  40
+        testminheap.insert('a');
+        testminheap.insert('b');
+        testminheap.insert('c');
+        testminheap.insert('d');
+        testminheap.insert('e');
+        testminheap.insert('f');
+        testminheap.insert('d');
+        //      a 
+        //   b     c
+        // d  e   f  d
     }
 
     @Test
     public void testInsert(){
         //test max heap tree 
-        //  100 40 50 10 15 50 40
-        assertEquals(testmaxheap.toString(),"100 40 50 10 15 50 40");
+        //  e c d a b d c
+        assertEquals(testmaxheap.toString(),"e c d a b d c");
 
         //test min heap tree
-        //  10 15 30 40 50 100 40
-        assertEquals(testminheap.toString(),"10 15 30 40 50 100 40");
+        //  a b c d e f d
+        assertEquals(testminheap.toString(),"a b c d e f d");
     }
 
     @Test
     public void testdelete(){
         //Max Heap Tests
         testmaxheap.delete();
-        // 50 40 50 10 15 40
-        assertEquals(testmaxheap.toString(),"50 40 50 10 15 40");
+        // d c d a b c
+        assertEquals(testmaxheap.toString(),"d c d a b c");
 
         //Min Heap Tests
         testminheap.delete();
-        //15 40 30 40 50 100
-        assertEquals(testminheap.toString(),"15 40 30 40 50 100");
+        // b d c d e f
+        assertEquals(testminheap.toString(),"b d c d e f");
     }
 
     @Test
     public void testPeek(){
         //Max Heap Tests
-        assertEquals(testmaxheap.peek(),100);
+        assertEquals(testmaxheap.peek(),'e');
         testmaxheap.delete();
-        assertEquals(testmaxheap.peek(),50);
+        assertEquals(testmaxheap.peek(),'d');
 
         //Min Heap Test
-        assertEquals(testminheap.peek(),10);
+        assertEquals(testminheap.peek(),'a');
         testminheap.delete();
-        assertEquals(testminheap.peek(),15);
+        assertEquals(testminheap.peek(),'b');
     }
 
 
@@ -125,9 +125,9 @@ public class HeapTest{
     @Test
     public void testToString(){
         //Max Heap Tests
-        assertEquals(testmaxheap.toString(),"100 40 50 10 15 50 40");
+        assertEquals(testmaxheap.toString(),"e c d a b d c");
 
         //Min Heap Test
-        assertEquals(testminheap.toString(),"10 15 30 40 50 100 40");
+        assertEquals(testminheap.toString(),"a b c d e f d");
     }
 }
