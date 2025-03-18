@@ -87,13 +87,13 @@ public class HeapTest{
         assertEquals(testmaxheap.size(),0);
 
         //Min Heap Test
-        assertEquals(testminheap.peek(),7);
+        assertEquals(testminheap.size(),7);
 
         testminheap.delete();
-        assertEquals(testminheap.peek(),6);
+        assertEquals(testminheap.size(),6);
 
         testminheap.clear();
-        assertEquals(testminheap.peek(),0);
+        assertEquals(testminheap.size(),0);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class HeapTest{
         assertTrue(testmaxheap.isEmpty());
 
         //Min Heap Test
-        assertFasle(testminheap.isEmpty());
+        assertFalse(testminheap.isEmpty());
         testminheap.clear();
         assertTrue(testminheap.isEmpty());
     }
@@ -117,7 +117,7 @@ public class HeapTest{
         assertTrue(testmaxheap.isEmpty());
 
         //Min Heap Test
-        assertFasle(testminheap.isEmpty());
+        assertFalse(testminheap.isEmpty());
         testminheap.clear();
         assertTrue(testminheap.isEmpty());
     }
