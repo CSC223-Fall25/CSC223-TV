@@ -2,14 +2,13 @@ package csc223.tv;
 
 import java.util.PriorityQueue;
 
-public class WeightedGraph implements WeightedGraphInterface{
+public class WeightedGraph extends UnweightedGraph implements WeightedGraphInterface{
 
     private double[][] adjmatrix;
-    int numVertices;
     static final double INFINITY = Double.POSITIVE_INFINITY; 
 
     public WeightedGraph(int vertices) {
-        numVertices = vertices;
+        super(vertices);
         adjmatrix = new double[vertices][vertices];
 
         //represent the matrix 
@@ -97,14 +96,5 @@ public class WeightedGraph implements WeightedGraphInterface{
         }
 
         return "Shortest path: " + path.toString().trim();
-    }
-
-    public static void main(String[] args) {
-        WeightedGraph graph = new WeightedGraph(4);
-        graph.addEdge(0, 1, 4.0);
-        graph.addEdge(0, 2, 1.0);
-        graph.addEdge(2, 1, 2.0);
-        graph.addEdge(1, 3, 5.0);
-        System.out.println(graph.shortestPath(0, 3));  // Should print "Shortest path: 0 2 1 3"
     }
 }
