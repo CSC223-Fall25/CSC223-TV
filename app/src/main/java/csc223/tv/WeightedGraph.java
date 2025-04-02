@@ -12,8 +12,8 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
         adjmatrix = new double[vertices][vertices];
 
         //represent the matrix 
-        for (int i =0; i < numVertices; i++) {
-            for (int j = 0; j < numVertices; j++){
+        for (int i =0; i < ver_num; i++) {
+            for (int j = 0; j < ver_num; j++){
                 adjmatrix[i][j] = INFINITY;
             }
         }
@@ -22,7 +22,7 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
 
     public void addEdge(int v1, int v2, double weight) {
         // assuming vertices are 0-based 
-        if (v1 >= 0 && v1< numVertices && v2 >=0 && v2 < numVertices){
+        if (v1 >= 0 && v1< ver_num && v2 >=0 && v2 < ver_num){
             adjmatrix[v1][v2] = weight;
         }
 
@@ -30,7 +30,7 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
 
     
     public double getEdgeWeight(int v1, int v2){
-        if (v1 >= 0 && v1 < numVertices && v2 >=0 && v2 < numVertices){
+        if (v1 >= 0 && v1 < ver_num && v2 >=0 && v2 < ver_num){
             return adjmatrix[v1][v2];
         }
         return INFINITY;
@@ -39,12 +39,12 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
 
     public String shortestPath(int startVertex, int endVertex){
         
-        double[] distance = new double[numVertices];
-        int[] predecesor = new int[numVertices];
-        boolean[] visited= new boolean[numVertices];
+        double[] distance = new double[ver_num];
+        int[] predecesor = new int[ver_num];
+        boolean[] visited= new boolean[ver_num];
 
         //initialize the distance
-        for (int i = 0; i < numVertices; i++){
+        for (int i = 0; i < ver_num; i++){
             distance[i] = INFINITY;
             predecesor[i] = -1;
             visited[i] = false;
@@ -67,7 +67,7 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
                 break;
             }
 
-            for (int i =0; i < numVertices; i++) {
+            for (int i =0; i < ver_num; i++) {
                 if (visited[i] || adjmatrix[vertex][i] == INFINITY ) {
                     continue;
                 }

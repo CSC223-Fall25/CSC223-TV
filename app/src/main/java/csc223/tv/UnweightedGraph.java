@@ -8,7 +8,7 @@ public class UnweightedGraph implements Graph {
     // Use BFS for the shortestPath method
 
     private int[][] matrix;
-    private int ver_num;
+    public int ver_num;
 
     public UnweightedGraph(int ver_num) {
         this.ver_num = ver_num;
