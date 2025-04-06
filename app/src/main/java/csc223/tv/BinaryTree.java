@@ -1,8 +1,5 @@
 package csc223.tv;
 
-
-
-
 public class BinaryTree implements Tree {
     
     int size;

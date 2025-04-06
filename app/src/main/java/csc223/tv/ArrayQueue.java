@@ -50,5 +50,15 @@ public class ArrayQueue {
         return size;
     }
 
+    public boolean contain(int item) {
+        for (int i =0; i < size; i ++) {
+            if (queue[i] == item) {
+                return true;
+            }
+
+        }   
+        return false;
+    }
+
 }
 
