@@ -142,7 +142,7 @@ public class GraphTest {
 
         weightedGraph.removeEdge(2,3);
 
-        assertFalse(unweightedGraph.hasEdge(2,3));
+        assertFalse(weightedGraph.hasEdge(2,3));
 
     }
 
@@ -154,19 +154,19 @@ public class GraphTest {
 
         int[] expected0 = {1, 2};
 
-        assertEquals(expected0, unweightedGraph.getNeighbors(0));
+        assertArrayEquals(expected0, unweightedGraph.getNeighbors(0));
 
        
 
         int[] expected1 = {0, 2};
 
-        assertEquals(expected1, unweightedGraph.getNeighbors(1));
+        assertArrayEquals(expected1, unweightedGraph.getNeighbors(1));
 
        
 
         int[] expected2 = {0, 1, 3};
 
-        assertEquals(expected2, unweightedGraph.getNeighbors(2));
+        assertArrayEquals(expected2, unweightedGraph.getNeighbors(2));
 
  
 
@@ -201,6 +201,26 @@ public class GraphTest {
         assertEquals(1, weightedGraph.getEdgeWeight(1, 2));
 
         assertEquals(3, weightedGraph.getEdgeWeight(2, 3));
+
+    }
+
+    @Test
+    public void testShortestPath(){
+
+        //Test unweighted graph shortest path
+        assertEquals("1 2 3 ", unweightedGraph.shortestPath(1, 3));
+
+        assertEquals("3 2 0 ", unweightedGraph.shortestPath(3, 0));
+
+        assertEquals("0 ", unweightedGraph.shortestPath(0, 0));
+
+        // Test weighted graph shortest path
+        assertEquals("0 1 2 3", weightedGraph.shortestPath(0, 3));
+
+        assertEquals("1 2 3", weightedGraph.shortestPath(1, 3));
+
+        assertEquals("3 2 1 0", weightedGraph.shortestPath(3, 0));
+
 
     }
 

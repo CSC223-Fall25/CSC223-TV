@@ -27,6 +27,43 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
         }
 
     }
+    @Override
+    public void removeEdge(int v1, int v2){
+        adjmatrix[v1][v2] = INFINITY;
+    }
+
+    @Override
+    public boolean hasEdge(int v1, int v2){
+        if (v1 == v2) {
+            return false;
+        }
+        
+        return adjmatrix[v1][v2] != INFINITY;
+    }
+
+    @Override
+    public int[] getNeighbors(int vertex){
+        int n = 0;
+
+        //count neighbors
+        for (int i= 0;i<ver_num; i++){
+            if (adjmatrix[vertex][i]!= 0 && i != vertex){
+                n = n+1;
+            }
+        }
+
+            //store them
+            int[] neighbors = new int[n];
+            int ind=0;
+
+            for (int i=0; i<ver_num; i++){
+                if (adjmatrix[vertex][i] != 0 && i != vertex){
+                    neighbors[ind] = i;
+                    ind = ind+1;}
+            }
+
+            return neighbors;
+        }
 
     
     public double getEdgeWeight(int v1, int v2){
@@ -95,6 +132,6 @@ public class WeightedGraph extends UnweightedGraph implements WeightedGraphInter
             current = predecesor[current];
         }
 
-        return "Shortest path: " + path.toString().trim();
+        return path.toString().trim();
     }
 }
