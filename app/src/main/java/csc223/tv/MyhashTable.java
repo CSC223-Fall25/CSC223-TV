@@ -75,7 +75,7 @@ public class MyhashTable {
         }
     }
 
-    public boolean conatins(String key){
+    public boolean contains(String key){
         int index = getIndex(key);
         ArrayList<Entry> bucket = buckets[index];
 
